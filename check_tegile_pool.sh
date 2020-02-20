@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script requires jq.
+# I made this script for a Tegile with only two pools. Pool A and Pool B
 # $USER1$/check_tegile_pool.sh -u $ARG1$ -k $ARG2$ -w $ARG3$ -c $ARG4$
 
 usage() {
