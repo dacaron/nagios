@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script requires jq.
-# $USER1$/check_vcenter_health.sh $HOSTADDRESS$ $ARG1$ $ARG2$ ; where $ARG1$=password(in this case $USER14$) and $ARG2$=service or vcha
+# $USER1$/check_vcenter_health.sh $HOSTADDRESS$ $ARG1$ $ARG2$ ; where $ARG1$=base64 encoded username:password (echo -ne 'username:password'|base64) and $ARG2$=service or vcha
 # Possible services: applmgmt, databasestorage, load, mem, softwarepackages, storage, swap, system
 
 OK=green
