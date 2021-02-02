@@ -2,7 +2,7 @@
 
 # This script requires jq.
 # $USER1$/check_vcenter_health.sh $HOSTADDRESS$ $ARG1$ $ARG2$ ; where $ARG1$=base64 encoded username:password (echo -ne 'username:password'|base64) and $ARG2$=service or vcha
-# Possible services: applmgmt, databasestorage, load, mem, softwarepackages, storage, swap, system
+# Possible services: applmgmt, database-storage, load, mem, software-packages, storage, swap, system
 
 OK=green
 WARN=yellow
@@ -41,7 +41,7 @@ case $SERVICE in
       exit 3
     fi
     ;;
-  applmgmt|databasestorage|softwarepackages|system)
+  applmgmt|database-storage|software-packages|system)
     HEALTH=`curl -ksX GET -H "Content-Type: application/json" -H "Accept: application/json" -H "vmware-api-session-id: ${SESSIONID}" "https://${HOSTADDRESS}/rest/appliance/health/${SERVICE}" | jq .[] | sed 's/"//g'`
     if [ "$HEALTH" == "$OK" ]; then
       echo "$SERVICE is $HEALTH"
