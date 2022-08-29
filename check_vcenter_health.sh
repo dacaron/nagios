@@ -11,9 +11,8 @@ CRIT=red
 UNK=grey
 
 HOSTADDRESS=$1
-PASSWD=$2
-SERVICE=$3
-SESSIONID=`curl -ksX POST -H "Authorization: Basic ${PASSWD}" -H "Content-Type: application/json" -H "Accept: application/json" -H "vmware-use-header-authn: test" -H "vmware-api-session-id: null" "https://${HOSTADDRESS}/rest/com/vmware/cis/session" | jq -r .[]`
+SERVICE=$2
+SESSIONID=`curl -n -ksX POST -H "Content-Type: application/json" -H "Accept: application/json" -H "vmware-use-header-authn: test" -H "vmware-api-session-id: null" "https://${HOSTADDRESS}/rest/com/vmware/cis/session" | jq -r .[]`
 
 case $SERVICE in
   load|mem|storage|swap)
