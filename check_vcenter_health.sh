@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # This script requires jq.
-# $USER1$/check_vcenter_health.sh $HOSTADDRESS$ $ARG1$ $ARG2$ ; where $ARG1$=base64 encoded username:password (echo -ne 'username:password'|base64) and $ARG2$=service or vcha
+# $USER1$/check_vcenter_health.sh $HOSTADDRESS$ $ARG1$ ; where $ARG1$=service or vcha
 # Possible services: applmgmt, database-storage, load, mem, software-packages, storage, swap, system
+# vCenter credentials must be in the ~/.netrc file. See netrc(5) man page for its syntax.
 
 OK=green
 WARN=yellow
